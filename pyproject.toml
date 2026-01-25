@@ -1,0 +1,44 @@
+[project]
+name = "api-server-python"
+version = "1.0.0"
+description = "A minimal FastAPI-based Python web server for DevOps exam scenarios"
+authors = [{ name = "Octo DevOps Team" }]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+keywords = ["fastapi", "api", "server", "devops", "kubernetes"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Framework :: FastAPI",
+]
+
+dependencies = ["fastapi==0.128.0", "uvicorn[standard]==0.40.0"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "httpx",  # For testing FastAPI endpoints
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "httpx",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/octo-training/api-server-python"
+"Bug Tracker" = "https://github.com/octo-training/api-server-python/issues"
